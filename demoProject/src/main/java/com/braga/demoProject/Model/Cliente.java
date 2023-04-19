@@ -1,22 +1,23 @@
-package com.braga.demoProject;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+package com.braga.demoProject.Model;
+import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
 @Entity
+@Table(name = "cliente")
 public class Cliente {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long id;
+    @Column
     private String nome;
+    @Column
     private Integer numero;
+    @Column
     private String endereco;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -30,10 +31,6 @@ public class Cliente {
 
     public String getEndereco() {
         return this.endereco;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public void setNome(String nome) {

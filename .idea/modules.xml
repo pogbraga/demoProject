@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.braga.demoProject.iml" filepath="$PROJECT_DIR$/.idea/modules/com.braga.demoProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.braga.demoProject.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.braga.demoProject.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/demoProject.iml" filepath="$PROJECT_DIR$/.idea/demoProject.iml" />
     </modules>
   </component>
