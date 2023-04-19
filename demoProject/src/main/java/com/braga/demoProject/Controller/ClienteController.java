@@ -29,6 +29,7 @@ public class ClienteController {
         clienteRepository.save(cliente);
         return "Cliente cadastrado com sucesso!";
     }
+
     @GetMapping("/buscar")
     public List<Cliente> getAllClientes(){
         return clienteRepository.findAll();
