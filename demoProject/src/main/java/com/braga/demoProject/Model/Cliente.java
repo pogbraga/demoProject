@@ -1,4 +1,4 @@
-package com.braga.demoProject.Model;
+package com.braga.demoProject.model;
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;

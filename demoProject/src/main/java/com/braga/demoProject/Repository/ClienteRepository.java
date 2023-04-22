@@ -1,6 +1,6 @@
-package com.braga.demoProject.Repository;
+package com.braga.demoProject.repository;
 
-import com.braga.demoProject.Model.Cliente;
+import com.braga.demoProject.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

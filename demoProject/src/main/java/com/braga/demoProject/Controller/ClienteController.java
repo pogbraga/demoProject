@@ -1,6 +1,6 @@
-package com.braga.demoProject.Controller;
-import com.braga.demoProject.Model.Cliente;
-import com.braga.demoProject.Repository.ClienteRepository;
+package com.braga.demoProject.controller;
+import com.braga.demoProject.model.Cliente;
+import com.braga.demoProject.repository.ClienteRepository;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

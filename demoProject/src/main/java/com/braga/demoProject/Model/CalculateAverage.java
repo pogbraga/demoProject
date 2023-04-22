@@ -1,4 +1,4 @@
-package com.braga.demoProject.Model;
+package com.braga.demoProject.model;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
