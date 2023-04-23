@@ -1,5 +1,5 @@
 package com.braga.demoProject.dto;
 
-public record Login(String usuario, String senha){
+public record Login(String login, String password) {
 
 }

@@ -21,15 +21,16 @@ public class AuthController {
     private TokenService tokenService;
 
     @PostMapping("/login")
-    public String login(@RequestBody Login login){
+    public String login(@RequestBody Login login) {
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
-        new UsernamePasswordAuthenticationToken(login.usuario(), login.senha());
+                new UsernamePasswordAuthenticationToken(login.login(),
+                        login.password());
 
-        Authentication authenticate = this.authenticationManager.
-                authenticate(usernamePasswordAuthenticationToken);
+        Authentication authenticate = this.authenticationManager
+                .authenticate(usernamePasswordAuthenticationToken);
+
         var usuario = (Usuario) authenticate.getPrincipal();
 
         return tokenService.gerarToken(usuario);
-
     }
 }

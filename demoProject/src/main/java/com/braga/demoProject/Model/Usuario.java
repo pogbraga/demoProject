@@ -1,14 +1,13 @@
 package com.braga.demoProject.model;
 
-import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
-@Entity
+@Entity(name = "usuario")
 @Table(name = "usuario")
 public class Usuario implements UserDetails {
 
@@ -16,44 +15,29 @@ public class Usuario implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private String usuario;
+    private String login;
 
-    @Column
-    private String senha;
+    private String password;
 
-    @Column
     private String role;
 
     public Long getId() {
         return id;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("USER"));
+        return List.of(new SimpleGrantedAuthority(role));
     }
 
     @Override
     public String getPassword() {
-        return senha;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return usuario;
+        return login;
     }
 
     @Override

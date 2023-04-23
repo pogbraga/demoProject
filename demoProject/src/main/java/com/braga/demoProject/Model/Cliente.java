@@ -1,14 +1,13 @@
 package com.braga.demoProject.model;
-import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "cliente")
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private String nome;

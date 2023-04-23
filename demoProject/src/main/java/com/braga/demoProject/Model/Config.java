@@ -1,5 +1,7 @@
-package com.braga.demoProject;
+package com.braga.demoProject.model;
 
+import com.braga.demoProject.model.FilterToken;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -11,10 +13,14 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class Config {
+
+    @Autowired
+    private FilterToken filter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -23,7 +29,9 @@ public class Config {
                 .and().authorizeHttpRequests()
                 .antMatchers(HttpMethod.POST, "/login")
                 .permitAll()
-                .anyRequest().authenticated().and().build();
+                .anyRequest().authenticated()
+                .and().addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
+                .build();
     }
 
     @Bean
@@ -36,5 +44,4 @@ public class Config {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-
 }
