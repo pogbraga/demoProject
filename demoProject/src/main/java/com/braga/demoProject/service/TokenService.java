@@ -1,7 +1,8 @@
-package com.braga.demoProject.model;
+package com.braga.demoProject.service;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.braga.demoProject.model.Usuario;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -15,7 +16,7 @@ public class TokenService {
                 .withSubject(usuario.getUsername())
                 .withClaim("id", usuario.getId())
                 .withExpiresAt(LocalDateTime.now()
-                        .plusSeconds(30)
+                        .plusMinutes(30)
                         .toInstant(ZoneOffset.of("-03:00"))
                 ).sign(Algorithm.HMAC256("secreta"));
     }

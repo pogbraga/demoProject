@@ -1,7 +1,7 @@
 package com.braga.demoProject.controller;
 
-import com.braga.demoProject.dto.Login;
-import com.braga.demoProject.model.TokenService;
+import com.braga.demoProject.dto.LoginRequest;
+import com.braga.demoProject.service.TokenService;
 import com.braga.demoProject.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,10 +21,10 @@ public class AuthController {
     private TokenService tokenService;
 
     @PostMapping("/login")
-    public String login(@RequestBody Login login) {
+    public String login(@RequestBody LoginRequest loginRequest) {
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
-                new UsernamePasswordAuthenticationToken(login.login(),
-                        login.password());
+                new UsernamePasswordAuthenticationToken(loginRequest.login(),
+                        loginRequest.password());
 
         Authentication authenticate = this.authenticationManager
                 .authenticate(usernamePasswordAuthenticationToken);

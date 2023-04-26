@@ -1,4 +1,4 @@
-package com.braga.demoProject.model;
+package com.braga.demoProject.service;
 
 import com.braga.demoProject.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
